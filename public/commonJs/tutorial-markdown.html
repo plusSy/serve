@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: markdown | commonJS Doc</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css"> -->
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <link type="text/css" rel="stylesheet" href="styles/fa.css">
+
+    
+
+</head>
+<body>
+
+<nav class="mynav" id="mynav">
+    <div class="title">
+        <h1><a href="index.html" class="link">commonJS Doc</a></h1>
+        
+            <span class="version">v0.0.5</span>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="mynav-tab">
+            <li id="api-tab">
+                <a href="#"><h4>API</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>wiki</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>wiki</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-demo.html">demo</a><div class="hidden" id="demo_sub"></div></li><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-markdown.html">markdown</a><div class="hidden" id="markdown_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Modules</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="module-valid.html">valid</a><div class="hidden" id="module:valid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-valid.html#~ChEnNumber">ChEnNumber</a></li><li><a href="module-valid.html#~CreditCode">CreditCode</a></li><li><a href="module-valid.html#~Email">Email</a></li><li><a href="module-valid.html#~Fax">Fax</a></li><li><a href="module-valid.html#~IDCard">IDCard</a></li><li><a href="module-valid.html#~MobilePhoneNumber">MobilePhoneNumber</a></li><li><a href="module-valid.html#~Number">Number</a></li><li><a href="module-valid.html#~positiveInteger">positiveInteger</a></li><li><a href="module-valid.html#~PostalCode">PostalCode</a></li><li><a href="module-valid.html#~TelPhoneNumber">TelPhoneNumber</a></li><li><a href="module-valid.html#~VerificationCode">VerificationCode</a></li><li><a href="module-valid.html#~Www">Www</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="$_.html">$_</a><div class="hidden" id="$__sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="$_.html#.fillzero">fillzero</a></li></ul></div></li></ul></div>
+</nav>
+
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+<section>
+    <header>
+        
+
+        <h2>markdown</h2>
+    </header>
+
+    
+        <article class="readme">
+            <h2>jsdoc</h2><h3>@file</h3><p>对文件的描述，用于文件的头部</p>
+<h3>@author <code>&lt;name&gt; [&lt;emailAddress&gt;]</code></h3><p>代码的作者<br>在姓名后面用尖括号加上邮箱会被自动转成 mailto: 的链接</p>
+<h3>@copyright <code>&lt;some copyright text&gt;</code></h3><p>与@file结合使用，说明版权相关的信息</p>
+<h3>@license <code>&lt;identifier&gt;</code></h3><p>说明许可证相关的信息</p>
+<h3>@type <code>{typeName}</code></h3><p>'*'表示任何类型</p>
+<p>'?'表示可以为null</p>
+<p>'!'表示不能为null</p>
+<p>数组用'[]'表示</p>
+<p>类型有多种情况需用'|'进行分隔，并加上'()'</p>
+<p>可以使用 @callback 或 @typedef 定义的类型</p>
+<h3>@property <code>[&lt;type&gt;] [&lt;name&gt;] [some description]</code></h3><p>描述对象的属性</p>
+<h3>@func <code>[&lt;FunctionName&gt;]</code></h3><p>标识一个函数</p>
+<h3>@param <code>{&lt;type&gt;} name - some description</code></h3><p>非必传参数需给参数名加上'[]'</p>
+<p>参数如有默认值需用'='表示</p>
+<p>如果参数是object，可继续用 @param 对其属性进行详细说明</p>
+<p>若干个参数用'...'表示</p>
+<h3>@returns <code>{&lt;type&gt;} some description</code></h3><p>描述一个函数的返回值</p>
+<h3>@namespace <code>[{&lt;type&gt;}] &lt;SomeName&gt;]</code></h3><p>标识一个命名空间</p>
+<h3>@desc <code>&lt;some description&gt;</code></h3><p>对某个部分的详细描述和说明</p>
+<h3>@summary <code>&lt;some description&gt;</code></h3><p>对某个部分的简短描述和说明</p>
+<h3>@constant <code>[&lt;type&gt; &lt;name&gt;]</code></h3><p>标识常量</p>
+<h3>@readonly</h3><p>仅仅是注释，JSDoc不会去检查究竟是不是readonly</p>
+<h3>@default <code>[&lt;some value&gt;]</code></h3><p>变量的初始值</p>
+<h3>@enum <code>[&lt;type&gt;]</code></h3><p>相同类型的集合</p>
+<p>注：<br>默认集合中的所有项都是相同类型，可以用@type指明某一项为其他类型</p>
+<h3>@example</h3><p>使用示例</p>
+<p>示例代码在文档中会被高亮显示</p>
+<h3>@throws <code>[{&lt;type&gt;} free-form description]</code></h3><p>表明这部分代码会抛出某个异常</p>
+<h3>@todo text describing thing to do</h3><p>后续需要做的事</p>
+<h3>@borrows <code>&lt;that namepath&gt; as &lt;this namepath&gt;</code></h3><p>可理解为复制注释</p>
+<p>当有多个地方引用了同一个函数，只需在一处写好注释，然后用@borrows即可</p>
+<h3>@callback <code>&lt;namepath&gt;</code></h3><p>定义一个回调函数，和 @typedef 一样，是一种自定义类型</p>
+<h3>@typedef <code>[&lt;type&gt;] &lt;namepath&gt;</code></h3><p>定义一个自定义类型</p>
+<p>定义后可以在 @type @param 等标签中使用</p>
+<h3>@this</h3><p>说明此处 this 所指代的内容</p>
+<h3>@global</h3><p>全局标识</p>
+<h3>@inner</h3><p>内部属性或方法的标识，使用后可以通过 Parent~Child 的方式来引用</p>
+<h3>@ignore</h3><p>告诉JSDoc忽略这部分代码</p>
+<h3>@version</h3><p>版本号</p>
+<h3>@since</h3><p>表明该内容出现在一个特定的版本之后</p>
+<h3>@class <code>[&lt;type&gt; &lt;name&gt;]</code></h3><p>标识一个函数为构造函数，可以用 new 的方式实例化</p>
+<h3>@classdesc <code>&lt;some description&gt;</code></h3><p>与 @class 结合使用</p>
+<p>注：<br>与 @desc 不同，@classdesc 是对类的描述，而 @desc 是对类的构造函数的描述</p>
+<h3>@member <code>[&lt;type&gt;] [&lt;name&gt;]</code></h3><p>标识类的属性</p>
+<h3>@method <code>[&lt;FunctionName&gt;]</code></h3><p>标识类的方法</p>
+<h3>@public</h3><p>标识类的属性或方法的访问范围是public</p>
+<h3>@private</h3><p>标识类的属性或方法的访问范围是private</p>
+<h3>@protected</h3><p>标识类的属性或方法的访问范围是protected</p>
+<h3>@instance</h3><p>实例属性或方法的标识</p>
+<h3>@static</h3><p>静态属性或方法的标识</p>
+<h3>@constructs <code>&lt;name&gt;</code></h3><p>当使用对象直接量去定义类时，可以通过 @constructs 标识某个函数为类的构造函数</p>
+<p>注：<br>不要和 @class同时使用,否则会在文档中出现两个同名的类</p>
+<h3>@lends <code>&lt;namepath&gt;</code></h3><p>把对象直接量的属性和方法指定为某个类的属性和方法</p>
+<h3>@extends <code>&lt;namepath&gt;</code></h3><p>用来表明继承关系</p>
+<h3>@abstract</h3><p>标识子类必须实现或重写父类的此方法</p>
+<h3>@override</h3><p>表明此方法是重写了父类的同名方法</p>
+<h3>@interface <code>[&lt;name&gt;]</code></h3><p>定义接口</p>
+<h3>@implements <code>{typeExpression}</code></h3><p>实现了某个接口</p>
+<h3>@module <code>[[{&lt;type&gt;}] &lt;moduleName&gt;]</code></h3><p>定义一个模块</p>
+<h3>@exports <code>&lt;moduleName&gt;</code></h3><p>当不是用 exports 或者 module.exports 对外提供模块接口时，需要使用 @exports 而不是 @module</p>
+<h3>@requires <code>&lt;someModuleName&gt;</code></h3><p>需要某个模块</p>
+<h3>@alias <code>&lt;aliasNamepath&gt;</code></h3><p>告诉JSDoc在生成文档时用另一个namepath去处理当前的内容</p>
+<p>注：</p>
+<h3>@alias 不同于 @name，@name会告诉JSDoc忽略这部分代码</h3><h3>@name <code>&lt;namepath&gt;</code></h3><p>使用 @name 时，需要提供很多其他的注释，如 @type 等，因为JSDoc会忽略这部分代码</p>
+<p>适用于在运行时才生成的函数等</p>
+<h3>@inheritdoc</h3><p>继承父类的注释</p>
+<h3>@mixin <code>[&lt;MixinName&gt;]</code></h3><p>表明当前对象的属性和方法可以被添加到另一个对象中</p>
+<h3>@mixes <code>&lt;OtherObjectPath&gt;</code></h3><p>将带有 @mixin 标签的对象的属性和方法添加进来</p>
+<h3>@see <code>&lt;namepath&gt;</code></h3><p>页面里超链接的作用</p>
+<p><code>or url</code><br>可以理解为注释中内联的 @see</p>
+        </article>
+    
+</section>
+
+
+
+</div>
+
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        showLnbExamples();
+    </script>
+
+</body>
+</html>

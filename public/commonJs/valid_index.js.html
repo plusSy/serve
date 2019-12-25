@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: valid/index.js | commonJS Doc</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css"> -->
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <link type="text/css" rel="stylesheet" href="styles/fa.css">
+
+    
+
+</head>
+<body>
+
+<nav class="mynav" id="mynav">
+    <div class="title">
+        <h1><a href="index.html" class="link">commonJS Doc</a></h1>
+        
+            <span class="version">v0.0.5</span>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="mynav-tab">
+            <li id="api-tab">
+                <a href="#"><h4>API</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>wiki</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>wiki</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-demo.html">demo</a><div class="hidden" id="demo_sub"></div></li><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-markdown.html">markdown</a><div class="hidden" id="markdown_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Modules</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="module-valid.html">valid</a><div class="hidden" id="module:valid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-valid.html#~ChEnNumber">ChEnNumber</a></li><li><a href="module-valid.html#~CreditCode">CreditCode</a></li><li><a href="module-valid.html#~Email">Email</a></li><li><a href="module-valid.html#~Fax">Fax</a></li><li><a href="module-valid.html#~IDCard">IDCard</a></li><li><a href="module-valid.html#~MobilePhoneNumber">MobilePhoneNumber</a></li><li><a href="module-valid.html#~Number">Number</a></li><li><a href="module-valid.html#~positiveInteger">positiveInteger</a></li><li><a href="module-valid.html#~PostalCode">PostalCode</a></li><li><a href="module-valid.html#~TelPhoneNumber">TelPhoneNumber</a></li><li><a href="module-valid.html#~VerificationCode">VerificationCode</a></li><li><a href="module-valid.html#~Www">Www</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="$_.html">$_</a><div class="hidden" id="$__sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="$_.html#.fillzero">fillzero</a></li></ul></div></li></ul></div>
+</nav>
+
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file valid
+ * @module valid
+*/
+/**
+ * @description 证件号码验证
+ * @example
+ *  import { IDCard }  from 'commonJs';
+ *  // const IDCard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/g;
+ *  const reg = new RegExp(IDCard);
+ *
+ *  reg.test(123456)
+ *  //=> false
+ *
+ *  reg.test(188888188808088888)
+ *  //=> true
+*/
+const IDCard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/g;
+
+/**
+ * @description 数字验证
+ * @example
+ *  import { Number }  from 'commonJs';
+ *  // const Number = /^[0-9]*$/g;
+ *  const reg = new RegExp(Number);
+ *
+ *  reg.test('非数字')
+ *  //=> false
+ *
+ *  reg.test(1234)
+ *  //=> true
+*/
+const Number = /^[0-9]*$/g;
+
+/**
+ * @description 6位数验证码验证
+ * @example
+ *  import { VerificationCode }  from 'commonJs';
+ *  // const VerificationCode = /^\d{6}$/g;
+ *  const reg = new RegExp(VerificationCode);
+ *
+ *  reg.test('123456')
+ *  //=> false
+ *
+ *  reg.test(865485)
+ *  //=> true
+*/
+const VerificationCode = /^\d{6}$/g;
+
+/**
+ * @description 手机号码验证
+ * @example
+ *  import { MobilePhoneNumber }  from 'commonJs';
+ *  // const MobilePhoneNumber = /^(\+)?(\d{2,3})?1\d{10}$/;
+ *  const reg = new RegExp(MobilePhoneNumber);
+ *
+ *  reg.test(+8616688886666)
+ *  //=> true
+ *
+ *  reg.test(16688886666)
+ *  //=> true
+ *
+ *  reg.test(+16688886666)
+ *  //=> false
+*/
+// MobilePhoneNumber: /^1[3|5|7|8]\d{9}$/,
+const MobilePhoneNumber = /^(\+)?(\d{2,3})?1\d{10}$/;
+
+/**
+ * @description 电话号码验证
+ * @example
+ *  import { TelPhoneNumber }  from 'commonJs';
+ *  // const TelPhoneNumber = /^0\d{2,3}-?\d{7,8}$/;
+ *  const reg = new RegExp(TelPhoneNumber);
+ *
+ *  reg.test(021-51119900)
+ *  //=> true
+ *
+ *  reg.test(02151119900)
+ *  //=> true
+ *
+ *  reg.test(16688886666)
+ *  //=> false
+*/
+const TelPhoneNumber = /^0\d{2,3}-?\d{7,8}$/;
+
+/**
+ * @description 网址地址验证
+ * @example
+ *  import { Www }  from 'commonJs';
+ *  // const Www = /\b(([\w-]+:\/\/?|www[.])[^\s()&lt;>]+(?:[\w\d]+|([^[:punct:]\s]|\/)))/;
+ *  const reg = new RegExp(Www);
+ *
+ *  reg.test('www.ocj.com.cn)'
+ *  //=> true
+*/
+const Www = /\b(([\w-]+:\/\/?|www[.])[^\s()&lt;>]+(?:[\w\d]+|([^[:punct:]\s]|\/)))/;
+
+/**
+ * @description 邮箱地址输入验证
+ * @example
+ *  import { Email }  from 'commonJs';
+ *  // const Email = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+ *  const reg = new RegExp(Email);
+ *
+ *  reg.test('ocj.com@opg.cn')
+ *  //=> true
+*/
+const Email = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+
+/**
+ * @description 统一社会信用代码验证
+ * @example
+ *  import { CreditCode }  from 'commonJs';
+ *  // const CreditCode = /^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g;
+ *  const reg = new RegExp(CreditCode);
+ *
+ *  reg.test('310000400369272')
+ *  //=> true
+*/
+const CreditCode = /^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g;
+
+/**
+ * @description 传真验证
+ * @example
+ *  import { Fax }  from 'commonJs';
+ *  // const Fax = /^(\d{3,4}-)?\d{7,8}$/;
+ *  const reg = new RegExp(Fax);
+ *
+ *  reg.test(021-51119900)
+ *  //=> true
+*/
+const Fax = /^(\d{3,4}-)?\d{7,8}$/;
+
+/**
+ * @description 中文、英文、数字 混合正则
+ * @example
+ *  import { ChEnNumber } from 'commonJs';
+ *  // const ChEnNumber = /^[a-zA-Z0-9\u4e00-\u9fa5]+$/g;
+ *  const reg = new RegExp(ChEnNumber);
+ *
+ *  reg.test('你好 word 123')
+ *  //=> false
+ *
+ *  reg.test('你好word123')
+ *  //=> true
+*/
+const ChEnNumber = /^[a-zA-Z0-9\u4e00-\u9fa5]+$/g;
+
+/**
+ * @description 正整数 正则
+ * @example
+ *  import { positiveInteger } from 'commonJs';
+ *  // const positiveInteger = /^\+?[1-9]\d*$/g;
+ *  const reg = new RegExp(positiveInteger);
+ *
+ *  reg.test(-123)
+ *  //=> false
+ *
+ *  reg.test(123)
+ *  //=> true
+*/
+const positiveInteger = /^\+?[1-9]\d*$/g;
+
+/**
+ * @description 邮编 正则
+ * @example
+ *  import { PostalCode } from 'commonJs';
+ *  const PostalCode = /^[a-zA-Z0-9 ]{3,12}$/;
+ *  const reg = new RegExp(PostalCode);
+ *
+ *  reg.test(200000)
+ *  //=> true
+*/
+const PostalCode = /^[a-zA-Z0-9 ]{3,12}$/;
+
+  export default {
+    IDCard,
+    Number,
+    VerificationCode,
+    MobilePhoneNumber,
+    TelPhoneNumber,
+    Www,
+    Email,
+    CreditCode,
+    Fax,
+    ChEnNumber,
+    positiveInteger,
+    PostalCode
+  };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.fa').removeClass('fa-plus-square').addClass('fa-minus-square');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home | commonJS Doc</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css"> -->
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <link type="text/css" rel="stylesheet" href="styles/fa.css">
+
+    
+
+</head>
+<body>
+
+<nav class="mynav" id="mynav">
+    <div class="title">
+        <h1><a href="index.html" class="link">commonJS Doc</a></h1>
+        
+            <span class="version">v0.0.5</span>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="mynav-tab">
+            <li id="api-tab">
+                <a href="#"><h4>API</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>wiki</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>wiki</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-demo.html">demo</a><div class="hidden" id="demo_sub"></div></li><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="tutorial-markdown.html">markdown</a><div class="hidden" id="markdown_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Modules</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="module-valid.html">valid</a><div class="hidden" id="module:valid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-valid.html#~ChEnNumber">ChEnNumber</a></li><li><a href="module-valid.html#~CreditCode">CreditCode</a></li><li><a href="module-valid.html#~Email">Email</a></li><li><a href="module-valid.html#~Fax">Fax</a></li><li><a href="module-valid.html#~IDCard">IDCard</a></li><li><a href="module-valid.html#~MobilePhoneNumber">MobilePhoneNumber</a></li><li><a href="module-valid.html#~Number">Number</a></li><li><a href="module-valid.html#~positiveInteger">positiveInteger</a></li><li><a href="module-valid.html#~PostalCode">PostalCode</a></li><li><a href="module-valid.html#~TelPhoneNumber">TelPhoneNumber</a></li><li><a href="module-valid.html#~VerificationCode">VerificationCode</a></li><li><a href="module-valid.html#~Www">Www</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><span class="hidden toggle-subnav">  <span class="fa fa-plus-square"></span></span><a href="$_.html">$_</a><div class="hidden" id="$__sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="$_.html#.fillzero">fillzero</a></li></ul></div></li></ul></div>
+</nav>
+
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section>
+        <article class="readme"><h1>commonJs</h1><p>公共脚本库开发,除了开发,还要对文档进行构建,这样一起合作的伙伴/使用的同事才能看懂这个项目做了些什么.下面简单介绍下该项目的开发流程以及上手流程.</p>
+<h2>开发依赖</h2><ul>
+<li>rollup <a href="https://www.rollupjs.com/">官网链接</a><ul>
+<li>js 工具库构建工具</li>
+</ul>
+</li>
+<li>jsdoc <a href="https://jsdoc.app/index.html">官网链接</a><ul>
+<li>文档生成工具</li>
+</ul>
+</li>
+<li>gulp <a href="https://gulpjs.com/docs/en/getting-started/quick-start">官网链接</a><ul>
+<li>项目构建工具</li>
+</ul>
+</li>
+</ul>
+<h2>npm 发布</h2><pre class="prettyprint source lang-js"><code>npm adduser
+    name:
+    password:
+    email: 
+
+npm login
+
+npm publish &lt;package name>
+
+npm unpublish  &lt;package name> --force</code></pre><h2>快速上手</h2><ul>
+<li>安装 rollup<pre class="prettyprint source lang-js"><code>  npm install rollup --global</code></pre></li>
+<li>安装 gulp<pre class="prettyprint source lang-js"><code>  npm install --global gulp-cli</code></pre></li>
+<li>克隆/运行项目<pre class="prettyprint source lang-js"><code>  git clone git@github.com:plusSy/commonJs.git
+  cd commonJs
+  npm install
+  npm run serve</code></pre><h2>脚本命令</h2><pre class="prettyprint source lang-js"><code>&quot;serve&quot;: &quot;gulp serve&quot;,                              // 启动 jsdoc 项目
+&quot;build&quot;: &quot;set NODE_ENV=production && rollup -c&quot;,    // 构建 js 文件
+&quot;build:dev&quot;: &quot;rollup -c -w&quot;,                        // 构建 js 文件 并 动态编译
+&quot;test&quot;: &quot;node test/test.js&quot;                         // 测试</code></pre></li>
+<li>这里<code>serve</code>任务做了三件事<ul>
+<li>监听 scss 文件，编译成 css 对应存入 static 目录下</li>
+<li>监听 jsdoc 相关文件</li>
+<li>触发 gulp-jsdoc 生成文档 </li>
+</ul>
+</li>
+<li><code>build</code> 任务以及 <code>build:dev</code> 任务是进行脚本构建</li>
+<li><code>test</code> 任务是进行脚本测试<h2>目录结构</h2><pre class="prettyprint source lang-js"><code>+-- demo                                // 文档目录
+| +-- src                               // 脚本目录
+| | +-- *.js                            // 脚本文件
+| | +-- main.js                         // 脚本入口文件
+| +-- tutorials                         // jsdoc 的辅助教程/样例目录
+| | +-- demo.html                       // jsdoc html 教程
+| | +-- markdown.md                     // jsdoc markedown 教程
+| +-- jsdoc-conf.json                   // jsdoc 配置文件
++-- dist                                // 项目打包目录
++-- doc                                 // 文档生成目录
++-- node_modules                        // 项目依赖
++-- scss                                // 样式修改
++-- static                              // 静态资源文件
+| +-- img                               // 图片
+| +-- scriprs                           // 脚本
+| +-- styles                            // 样式
+| +-- webfonts                          // 字体
++-- tmpl                                // doc模板目录
++-- .babelrc                            // 编译配置文件
++-- .editconfig                         // 编辑器配置
++-- .eslintrc.js                        // lint配置
++-- .gitignore                          
++-- gulpfile.js                         // 项目构建配置
++-- package.json                        // 项目配置
++-- publish.js                          // 修改由 jsdoc 传入的数据，包括 nav 信息，注释信息等
++-- README.md
++-- rollup.config.js                    // 工具库构建配置</code></pre></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = 'package:commonjs_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.fa').removeClass('fa-plus-square').addClass('fa-minus-square');
+        showLnbApi();
+    </script>
+
+</body>
+</html>
